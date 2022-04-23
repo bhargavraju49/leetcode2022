@@ -14,8 +14,8 @@ class Solution:
             
             while start < end:
                 if nums[start] + nums[end] == target:
-                    # if [nums[i],nums[start],nums[end]] not in res:
-                    res.append((nums[i],nums[start],nums[end]))
+                    if [nums[i],nums[start],nums[end]] not in res:
+                        res.append([nums[i],nums[start],nums[end]])
                     start+=1
                     end-=1
                 elif nums[start] + nums[end] > target:
@@ -23,5 +23,5 @@ class Solution:
                 else:
                     start+=1
         
-        return list(set(res))
+        return res
                     

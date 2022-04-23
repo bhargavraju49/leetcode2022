@@ -6,9 +6,7 @@ class Solution:
         maxl = 0
         
         while start<end:
-            l = end - start
-            
-            ans = l * min(height[start], height[end])
+            ans = (end - start) * min(height[start], height[end])
             
             maxl = max(ans,maxl)
             

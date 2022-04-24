@@ -1,7 +1,7 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         
-        res = dict()
+        res = {}
         
         for i in strs:
             ele = sorted(i)

@@ -1,24 +1,19 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        res = []
-        track = []
-        self.targetSum = 0
+        candidates.sort()
+        return self.combinationSum_sorted(candidates, target)
         
-        def backtrack(nums, start, track):
-            
-            for i in range(start,len(nums)):
-                if self.targetSum == target:
-                    res.append(track.copy())
-                    return
-
-                if self.targetSum > target:
-                    return
-
-                track.append(nums[i])
-                self.targetSum += nums[i]
-                backtrack(nums, i, track) 
-                
-                self.targetSum -= track.pop()
+    def combinationSum_sorted(self, candidates, target):
+        res=[]
+        if target in candidates:
+            res.append([target])
         
-        backtrack(candidates, 0, track)
+        for i in range(len(candidates)):
+            v = candidates[i]
+            if v > target//2:
+                break
+            else:
+                res_next = self.combinationSum_sorted(candidates[i:], target-v)
+                for res1 in res_next:
+                    res.append([v] + res1)
         return res

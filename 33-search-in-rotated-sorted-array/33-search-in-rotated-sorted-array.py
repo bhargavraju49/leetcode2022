@@ -11,9 +11,9 @@ class Solution:
             mid = (left+right)//2
 
             if nums[mid]==target:
-                result=mid
+                return mid
 
-            if nums[mid]>=nums[left]:
+            elif nums[mid]>=nums[left]:
                 ## That means we are in left sorted part
 
                 if target<nums[mid]:

@@ -1,11 +1,9 @@
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
-        """
-        Do not return anything, modify matrix in-place instead.
-        """
-        n = len(matrix)
         
-        #finding a transpose
+        # finding transpose and reversing every row
+        
+        n = len(matrix)
         
         for i in range(0,n):
             for j in range(i+1,n):

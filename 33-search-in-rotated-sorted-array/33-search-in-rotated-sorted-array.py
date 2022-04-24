@@ -3,7 +3,6 @@ class Solution:
             
     ## The array has been rotated at an index k which has been taken as the pivot
     
-        result=-1
         left,right=0,len(nums)-1
         ## completing the initializations
 
@@ -16,24 +15,16 @@ class Solution:
             elif nums[mid]>=nums[left]:
                 ## That means we are in left sorted part
 
-                if target<nums[mid]:
-
-                    if target<nums[left]:
-                        left=mid+1
-                    else:
-                        right=mid-1
+                if target<=nums[mid] and target>=nums[left] :
+                    right=mid-1
                 else:
                     left=mid+1
 
             else:
                 ## we are in right part of the list
-                if target>nums[mid]:
-
-                    if target>nums[right]:
-                        right=mid-1
-                    else:
-                        left=mid+1
+                if target>nums[mid] and target<=nums[right]:
+                    left=mid+1
                 else:
                     right=mid-1
 
-        return result
+        return -1

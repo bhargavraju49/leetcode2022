@@ -14,26 +14,6 @@ class Solution:
         
         return y
         
-        
-#         def helper(n, c):     Recursion fails due to TLE
-#             if n==0:
-#                 c+=1
-#                 return c
-#             if n<0:
-#                 return c
-            
-#             x = helper(n-1,c)
-#             y = helper(n-2,c)
-            
-#             return x + y
-            
-#         return (helper(n,0))
-        
-#         1 - 1
-#         2 - 2
-#         3 - 3
-#         4 - 3 + 2
-#         5 - 5 + 3
 
             
             

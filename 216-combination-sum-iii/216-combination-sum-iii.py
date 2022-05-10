@@ -25,7 +25,7 @@ class Solution:
                 return
 
             for i in range(s,10):
-                if n-i>=i+1 and combi(k-1,n-i,i+1,l+[i]):
+                if n-i>=i+1 and combi(k-1,n-i,i+1,l+[i])!=None:
                     pass
 
         Res = []

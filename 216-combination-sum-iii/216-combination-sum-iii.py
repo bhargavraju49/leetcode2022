@@ -20,15 +20,14 @@ class Solution:
         def combi (k,n,s,l):
             if k == 1 and n>=s and n<10:
                 l.append(n)
-                return l
+                Res.append(l)
+                return
             elif( k==1 and (n<s or n>9)):
                 return
 
             for i in range(s,10):
-                if n-i>=i+1:
-                    smallcomb = combi(k-1,n-i,i+1,l+[i])
-                    if smallcomb!=None:
-                        Res.append(smallcomb)
+                if n-i>=i+1 and combi(k-1,n-i,i+1,l+[i])!=None:
+                    pass
 
         Res = []
         combi(k, n, 1, [])

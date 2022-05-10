@@ -14,3 +14,21 @@ class Solution:
         Res = []
         combi(k, n, 1, [])
         return Res
+    
+#ruff
+#         mi = (k * (k + 1)) // 2
+#         ma = 45 - ((9 - k) * (10 - k)) // 2
+#         if n == mi:
+#             res = []
+#             for i in range(1, k + 1):
+#                 res.append(i)
+#             return [res]
+
+#         elif n == ma:
+#             res = []
+#             for i in range(9 - k + 1, 10):
+#                 res.append(i)
+#             return [res]
+
+#         elif n > ma or n < mi:
+#             return []

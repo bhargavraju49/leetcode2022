@@ -25,13 +25,10 @@ class Solution:
                 return
 
             for i in range(s,10):
-                if n-i>=i+1:
-                    smallcomb = combi(k-1,n-i,i+1,l+[i])
-                    if smallcomb!=None:
-                        Res.append(smallcomb)
-
-
-
+                # if n-i>=i+1:
+                smallcomb = combi(k-1,n-i,i+1,l+[i])
+                if smallcomb!=None:
+                    Res.append(smallcomb)
 
         Res = []
         combi(k, n, 1, [])

@@ -19,8 +19,7 @@ class Solution:
 
         def combi (k,n,s,l):
             if k == 1 and n>=s and n<10:
-                l.append(n)
-                Res.append(l)
+                Res.append(l+[n])
                 return
             elif( k==1 and (n<s or n>9)):
                 return

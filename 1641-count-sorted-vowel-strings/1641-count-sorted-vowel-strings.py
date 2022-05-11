@@ -8,6 +8,7 @@ class Solution:
                 k.append(k[j-1] - N[j-1])
                 sigN+=k[j]
             N=k
+            sigN = sum(N)
             pass
         return (sigN)
             

@@ -10,5 +10,18 @@ class Solution:
             sigN = sum(N)
             pass
         return (sigN)
-            
+    
+#     vowels = ['a', 'e', 'i', 'o', 'u']
+
+#     def helper(v, n, s):
+#         if n == 0:
+#             Res.append(s)
+#             return
+#         for i, j in enumerate(v):
+#             helper(v[i:], n - 1, s + j)
+
+#     Res = []
+
+#     helper(vowels, n, '')
+#     print(Res)
         

@@ -6,7 +6,6 @@ class Solution:
                 graph[i[0]] = [[i[1], i[2]]]  # dictonary[node] = [[neighnour,distance]]
             else:
                 graph[i[0]] += [[i[1], i[2]]]
-
         dp = [sys.maxsize]*n
         q = [(k,0)]
         visited = []

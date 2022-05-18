@@ -19,8 +19,8 @@ class Solution:
                     res.append((node,Nvertex))
                 else:
                     time[node] = min(time[Nvertex],time[node]) 
-        getcc()
-        return res
+            return res
+        return getcc()
                     
                 
                 

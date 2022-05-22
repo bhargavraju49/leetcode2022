@@ -1,22 +1,20 @@
+
 class Solution:
     def letterCasePermutation(self, s: str) -> List[str]:
-        res = []
-        r = len(s)-1
-        s = list(s)
-        
-        
-        def helper(l):
-
-            if l > r:
-                res.append("".join(s))
-                return
+        results = ['#']
+        for char in s:
+            new_results = []
             
-            if s[l].isalpha():
-                s[l] = s[l].swapcase()
-                helper(l+1)
-                s[l] = s[l].swapcase()
-            helper(l+1)
+            if char.isalpha():
+                a, b = char.lower(), char.upper()
+                for x in results:
+                    new_results.append(x + a)
+                    new_results.append(x + b)
+            else:
+                a = char
+                for x in results:
+                    new_results.append(x + a)
+            
+            results = new_results
         
-        helper(0)
-        
-        return res
+        return [v[1:] for v in results]

@@ -6,7 +6,6 @@ class Solution:
                 return
             if k == 0:
                 res.append(r)
-                return
             for i in range(len(n)):
                 helper(n[i+1:],k-1,r+[n[i]])
         

@@ -7,9 +7,9 @@
 class Solution:
     def mergeTrees(self, t1: Optional[TreeNode], t2: Optional[TreeNode]) -> Optional[TreeNode]:
         def helper(t1,t2):
-            if not t1:
+            if t1 is None:
                 return t2
-            if not t2:
+            if t2 is None:
                 return t1
             
             t1.val+=t2.val

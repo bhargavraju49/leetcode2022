@@ -16,14 +16,18 @@ class Solution:
             q = [root]
             while q:
                 l = len(q)
+                prev = None
                 for i in range(l):
                     k = q.pop(0)
+                    if prev is not None:
+                        prev.next = k.left
+
                     if k.left is not None:
+                        k.left.next = k.right
+                        prev = k.right
                         q.append(k.left)
                         q.append(k.right)
 
-                for i in range(len(q)-1):
-                    q[i].next=q[i+1]
 
         helper(root)
         return root

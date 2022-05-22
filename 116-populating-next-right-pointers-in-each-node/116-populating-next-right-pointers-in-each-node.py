@@ -21,13 +21,11 @@ class Solution:
                     k = q.pop(0)
                     if prev is not None:
                         prev.next = k.left
-
                     if k.left is not None:
                         k.left.next = k.right
                         prev = k.right
                         q.append(k.left)
                         q.append(k.right)
-
 
         helper(root)
         return root

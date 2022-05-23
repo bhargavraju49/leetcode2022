@@ -1,21 +1,21 @@
 class Solution:
-    def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
-        strs = [collections.Counter(s) for s in strs]
-        dp = {}
-        
-        def helper(i, m, n):
-            if i == len(strs):
-                return 0
-            
-            x = (i, m, n)
-            if x in dp:
-                return dp[x]
-            
-            count0, count1 = strs[i]['0'], strs[i]['1']
-            dp[x] = helper(i + 1, m, n)
-            if m - count0 >= 0 and n - count1 >= 0:
-                dp[x] = max(dp[x], helper(i + 1, m - count0, n - count1) + 1)
-                
-            return dp[x]
-        
-        return helper(0, m, n)
+    def findMaxForm(self, strs,m,n):
+        counter = Counter([(s.count('0'), s.count('1')) for s in strs])
+        d = defaultdict(lambda: -1)
+
+        def dfs(m, n, count):
+            if d[(m, n)] >= count: return d[(m, n)]
+            max_count = count
+            d[(m, n)] = count
+
+            for k, v in counter.items():
+                if v <= 0: continue
+                zeros, ones = k[0], k[1]
+                if zeros <= m and ones <= n:
+                    counter[k] -= 1
+                    max_count = max(max_count, dfs(m - zeros, n - ones, count + 1))
+                    counter[k] += 1
+            return max_count
+
+        result = dfs(m, n, 0)
+        return result

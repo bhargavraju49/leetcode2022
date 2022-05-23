@@ -14,7 +14,7 @@ class Solution:
             if ((p<=root.val and q>=root.val) or (p>=root.val and q<=root.val)):
                 return root
             
-            elif (p>=root.val and q>=root.val) or (p>=root.val and q<=root.val):
+            elif (p>=root.val and q>=root.val):
                 return helper(root.right,p,q)
                 
             else:

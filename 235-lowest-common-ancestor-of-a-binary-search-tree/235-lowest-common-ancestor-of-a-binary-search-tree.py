@@ -10,17 +10,13 @@ class Solution:
         
         def helper(root,p,q):
             
-            
-            if ((p<=root.val and q>=root.val) or (p>=root.val and q<=root.val)):
-                return root
-            
-            elif (p>=root.val and q>=root.val):
+            if (p>root.val and q>root.val):
                 return helper(root.right,p,q)
                 
-            else:
+            elif (p<root.val and q<root.val):
                 return helper(root.left,p,q)
-                
-            pass
-        
+            else:
+                return root
+
         
         return helper(root,p.val,q.val)

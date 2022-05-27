@@ -1,11 +1,9 @@
 class Solution:
-    def numberOfSteps(self, num: int) -> int:
-        x = bin(num)[2:]
+    def numberOfSteps(self, num: int) -> int: 
         res = -1
-        for i in x:
+        for i in bin(num)[2:]:
             if i=='0':
                 res+=1
             else:
                 res+=2
-            
         return res

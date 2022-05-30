@@ -11,9 +11,9 @@ class Solution:
             i = 0
             tmp = dvs
             while dvd >= tmp:
-                tmp = tmp << 1
+                tmp = tmp << 1    # multiplying by 2
                 i += 1
-            dvd -= tmp >> 1
-            q += 1 << (i - 1)
+            dvd -= tmp >> 1        #dividing by 2
+            q += 1 << (i - 1)      # updating quotient
         return q if s else -q
         

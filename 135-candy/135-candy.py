@@ -1,37 +1,34 @@
 class Solution:
-    def candy(self, r: List[int]) -> int:
-        dp = [1 for i in range(len(r))]
-        topcheck = False
-        top = 0
-        res = 0
-        for i in range(1,len(r)):
-            if i-2>=0 and r[i]<r[i-1] and r[i-1]>r[i-2]:
-                topcheck = True
-                top = dp[i-1]
-                dp[i] = 1
-            elif i-2>=0 and r[i]>r[i-1] and r[i-1]<r[i-2]:
-                if topcheck:
-                    if dp[i-1]>=top:
-                        res+=dp[i-1]+1-top
-                        top = 0
-                        topcheck=False
-                    top = 0
-                    topcheck=False
-                dp[i] = 2
-            elif r[i]==r[i-1]:
-                if topcheck:
-                    if dp[i-1]>=top:
-                        res+=dp[i-1]+1-top
-                        top = 0
-                        topcheck=False
-                top = 0
-                topcheck = False
+    def candy(self, ratings: List[int]) -> int:
+        isInc = False
+        currval = 0
+        prev_rating = ratings[0]
+        topPeak = -1
+        candies = 0
+
+        for rating in ratings:
+            if rating > prev_rating:
+                if not isInc:
+                    isInc = True
+                    currval = 1
+                currval += 1
+                candies += currval
+
+            elif rating < prev_rating:
+                if isInc:
+                    isInc = False
+                    topPeak = currval
+                    currval = 0
+                currval += 1
+                if currval == topPeak:
+                    currval += 1
+                candies += currval
+            
             else:
-                dp[i]=dp[i-1]+1
-        if topcheck:
-            if dp[len(r)-1]>=top:
-                res+=dp[len(r)-1]+1-top
-                top = 0
-                topcheck=False
-                return sum(dp)+res 
-        return sum(dp)+res
+                candies += 1
+                currval = 1
+                isInc = True
+
+            prev_rating = rating
+        
+        return candies

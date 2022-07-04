@@ -26,7 +26,7 @@ class Solution:
                         topcheck=False
                 top = 0
                 topcheck = False
-            elif r[i]<r[i-1] or r[i]>r[i-1]:
+            else:
                 dp[i]=dp[i-1]+1
         if topcheck:
             if dp[len(r)-1]>=top:

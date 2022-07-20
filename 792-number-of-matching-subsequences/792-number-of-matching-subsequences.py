@@ -36,7 +36,7 @@ class Solution:
                             break
 
 
-                    if check == len(word):
-                        result.append(word)
+            if check == len(word):
+                result.append(word)
 
         return len(result)  

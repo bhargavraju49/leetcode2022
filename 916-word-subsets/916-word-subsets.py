@@ -1,40 +1,18 @@
-class Solution:
-    def wordSubsets(self, words1: List[str], words2: List[str]) -> List[str]:
-        for i, j in enumerate(words1):
-            k = {}
-            k["value"] = j
-            for l in j:
-                k[l] = k.get(l, 0) + 1
+class Solution(object):
+    def wordSubsets(self, A, B):
+        def count(word):
+            ans = [0] * 26
+            for letter in word:
+                ans[ord(letter) - ord('a')] += 1
+            return ans
 
-            words1[i] = k
+        bmax = [0] * 26
+        for b in B:
+            for i, c in enumerate(count(b)):
+                bmax[i] = max(bmax[i], c)
 
-        for i, j in enumerate(words2):
-            k = {}
-
-            for l in j:
-                k[l] = k.get(l, 0) + 1
-
-            words2[i] = k
-
-        jdict = {}
-
-        for i in words2:
-            for j in i:
-                if jdict.get(j,0)<i.get(j):
-                    jdict[j] = i[j]
-
-        for k, j in enumerate(words1):
-            if j["value"]=="":
-                continue
-            for l in jdict:
-                if jdict.get(l) > j.get(l,-1):
-                    j["value"]=""
-                    break
-
-        res = []
-        for i in words1:
-            if i.get("value")=='':
-                continue
-            else:
-                res.append(i.get("value"))
-        return res
+        ans = []
+        for a in A:
+            if all(x >= y for x, y in zip(count(a), bmax)):
+                ans.append(a)
+        return ans

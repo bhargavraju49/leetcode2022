@@ -22,8 +22,8 @@ class Solution:
             if root.right:
                 mr = max(m,root.right.val)
                 
-            l = counter(root.left,ml)
-            r = counter(root.right,mr)
+            counter(root.left,ml)
+            counter(root.right,mr)
             
             return
         

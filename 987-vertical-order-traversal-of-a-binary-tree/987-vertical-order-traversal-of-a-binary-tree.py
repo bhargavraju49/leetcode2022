@@ -28,6 +28,7 @@ class Solution:
         for i in range(r[0],r[1]+1):
             k = res[i]
             j = list(k.keys())
+            # print(*j)
             j.sort()
             rr = []
             for l in j:

@@ -14,14 +14,11 @@ class Solution:
         res = 0
         for i in kys[1:]:
             tmp = d[i]
-            c1 = tmp[0]
             for i in tmp:
                 if i<c:
                     res+=1
-                if i>c1:
-                    c1 = i
             
-            c = max(c, c1)
+            c = max(c, max(tmp))
         
         return res
             

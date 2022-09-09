@@ -12,7 +12,6 @@ class Solution:
         
         c = max(d[kys[0]])
         res = 0
-        print (d)
         for i in kys[1:]:
             tmp = d[i]
             for i in tmp:

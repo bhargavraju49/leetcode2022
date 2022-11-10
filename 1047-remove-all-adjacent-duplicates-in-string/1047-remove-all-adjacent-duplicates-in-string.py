@@ -9,11 +9,8 @@ class Solution:
                 stack.pop()
             else:
                 stack.append(i)
-        res = ''
-        for i in stack:
-            res+=i
         
-        return res
+        return "".join(stack)
         
         
         
